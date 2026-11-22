@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Online Resume Builder
 Flask app: guided builder, 8 templates, live preview, ATS analyzer, document import (PDF text + OCR), GitHub import, PDF export (ReportLab), optional AI assistant.
 Project by AYUSH NARVARIYA (BTAI26O1026), ANKUSH GUPTA (BTAI26O1013), NIKUNJ GOYAL (BTAI26O1079) - MITS-DU, Gwalior.
@@ -25,3 +26,7 @@ Note: Render's Python runtime has no Tesseract, so image OCR is unavailable ther
 
 ## Privacy
 Resume data lives in the browser (localStorage). The server processes uploads and PDF requests in memory and stores nothing. AI calls send only the text you confirm.
+=======
+# Online-Resume-Builder
+Online Resume Builder using Python Flask, HTML and CSS – A collaborative 3-member team project.
+>>>>>>> e660b78f4358bb63880c32bbf898eabb2f63cc45
