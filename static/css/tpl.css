@@ -1,0 +1,26 @@
+/* ===== resume templates (preview + thumbnails) ===== */
+.page{--a:#3b4cca;font-size:12.5px;line-height:1.4}.page.f-serif{font-family:Georgia,"Times New Roman",serif}.page.f-sans{font-family:Arial,Helvetica,sans-serif}.page.f-mono{font-family:"Courier New",monospace;font-size:11.5px}
+.page h1{font-size:30px;margin:0;color:var(--a);letter-spacing:0}.page .ct{font-size:11.5px;color:#444;margin:3px 0 8px}
+.page h2{font-size:13px;color:var(--a);margin:13px 0 5px;text-transform:uppercase;letter-spacing:.05em;font-family:inherit}
+.page .row{display:flex;justify-content:space-between;gap:10px;font-weight:700;margin-top:6px}.page .row span{font-weight:400;font-size:11.5px;white-space:nowrap}
+.page .sub{font-style:italic;color:#444;font-size:11.5px}.page ul{margin:2px 0 4px 17px;padding:0}.page p{margin:2px 0}
+.t-classic header,.t-executive header{text-align:center}.t-classic h2,.t-executive h2{border-bottom:1.5px solid var(--a);padding-bottom:2px}.t-classic h1{color:#111}
+.t-minimal h2{text-transform:none;font-size:14px;letter-spacing:0}.t-minimal h1{font-weight:300;font-size:34px}
+.t-ats h1,.t-ats h2{color:#000}.t-ats h2{border:0}
+.t-student h2{border-bottom:1px solid var(--a)}.t-student h1{font-size:26px}
+.t-technical h2{border-left:4px solid var(--a);padding-left:8px;text-transform:none}.t-technical h1{font-family:"Courier New",monospace}
+.t-corporate header,.t-accent header{background:var(--a);color:#fff;margin:-44px -48px 10px;padding:30px 48px 16px}.t-corporate h1,.t-accent h1,.t-corporate .ct,.t-accent .ct{color:#fff}
+.t-corporate h2{border-bottom:2px solid var(--a)}.t-accent h2{text-transform:none;font-size:15px;border-bottom:1px solid var(--a)}
+.t-executive h1{font-size:34px;letter-spacing:.08em;text-transform:uppercase}.t-executive h2{text-align:center;border-bottom:0;border-top:1px solid var(--a);border-bottom:1px solid var(--a);padding:3px 0}
+.two .cols{display:grid;grid-template-columns:1fr 2.1fr;gap:20px}
+
+.t-sidebar{padding:0;display:grid;grid-template-columns:31% 1fr}.t-sidebar .sd{background:var(--a);color:#fff;padding:44px 20px}
+.t-sidebar .sd h1{color:#fff;font-size:24px;line-height:1.1;margin-bottom:6px}.t-sidebar .sd h2{color:#fff;border:0;border-bottom:1px solid #fff6;font-size:11.5px;padding-bottom:3px}
+.t-sidebar .sd .ct span{display:block;margin:3px 0;word-break:break-all;color:#fff;font-size:11.5px}.t-sidebar .sd p,.t-sidebar .sd li{color:#fff;font-size:11.5px}.t-sidebar .sd .sub{color:#ffffffcc}
+.t-sidebar .mn{padding:44px 40px 44px 28px}
+
+.ctv{display:flex;gap:44px;font-size:11.5px;line-height:1.55;margin:7px 0 8px;color:#333}.ctv b{font-weight:700}
+.t-classic .ctv,.t-executive .ctv{justify-content:center;text-align:left}.t-corporate .ctv,.t-accent .ctv{color:#fff}
+.t-sidebar .sd .ct b{font-weight:700}
+.page .imgs{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:6px}.page .imgs figure{margin:0;text-align:center;font-size:9.5px;color:#555}.page .imgs img{width:100%;border:1px solid #ddd;display:block}
+.t-sidebar .imgs{grid-template-columns:repeat(2,1fr)}

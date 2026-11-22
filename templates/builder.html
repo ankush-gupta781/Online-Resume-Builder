@@ -1,0 +1,11 @@
+{% extends "base.html" %}{% block body %}
+<div class="tabs" id="tabs"><button class="btn pri" data-t="edit">Edit</button><button class="btn" data-t="prev">Preview</button></div>
+<div class="split m-edit" id="split">
+<section class="pane-form"><div class="steps" id="steps"></div><div class="prog"><b id="prog"></b></div>
+<div class="card"><div id="form"></div>
+<div style="display:flex;justify-content:space-between;align-items:center;margin-top:18px"><button class="btn" id="prev">← Previous</button><span class="note" id="saved">Draft saved</span><button class="btn pri" id="next">Next →</button></div></div></section>
+<section class="pane-prev"><div style="display:flex;gap:8px;margin-bottom:8px;flex-wrap:wrap"><button class="btn sm" id="fs">Full screen</button><button class="btn sm" id="pdfTop">DOWNLOAD RESUME PDF</button><span class="note" id="pvnote" style="align-self:center"></span></div>
+<div class="stage" id="stage"></div></section></div>
+<div class="modal" id="modal"><div class="card" id="modalBody"></div></div>
+<div class="full" id="full"><button class="btn" id="fsClose" style="margin-bottom:10px">Close</button><div class="stage" id="fsStage"></div></div>
+{% endblock %}{% block js %}<script src="{{ url_for('static', filename='js/builder.js') }}"></script>{% endblock %}

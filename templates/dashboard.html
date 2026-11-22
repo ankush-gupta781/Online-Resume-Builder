@@ -1,0 +1,14 @@
+{% extends "base.html" %}{% block body %}
+<h1>Dashboard</h1><div class="grid g3" id="stats"></div><div class="grid g2" style="margin-top:16px"><div class="card"><h3>Recommendations</h3><div id="rec"></div></div><div class="card"><h3>Resume versions</h3><div id="vers"></div></div></div>
+{% endblock %}{% block js %}<script>
+function draw(){const D=RB.load(),p=D.personal,sk=Object.values(D.skills).join(",").split(",").filter(x=>x.trim()).length;
+const checks=[["Add your full name",p.fullName,"personal"],["Add an email",p.email,"personal"],["Add a phone number",p.phone,"personal"],["Write a professional summary",D.summary,"summary"],["Add education",D.education.length,"education"],["Add experience or an internship",D.experience.length||D.internships.length,"experience"],["List at least 5 skills",sk>=5,"skills"],["Add a project",D.projects.length,"projects"],["Add a certification",D.certifications.length,"certifications"],["Add a LinkedIn or GitHub link",p.linkedin||p.github,"personal"]];
+const done=checks.filter(c=>c[1]).length,pct=Math.round(done/checks.length*100),tpl=(TPLS.find(t=>t[0]===D.design.template)||[])[1];
+const card=(a,b)=>`<div class="card"><div class="note">${a}</div><div class="score" style="font-size:36px">${b}</div></div>`;
+$("#stats").innerHTML=card("Completion",pct+"%")+card("ATS score",D.scores.ats!=null?D.scores.ats+"/100":"Not run")+card("Projects",D.projects.length)+card("Skills",sk)+card("Certifications",D.certifications.length)+card("Template",tpl||"")+card("Versions",RB.versions().length);
+const miss=checks.filter(c=>!c[1]);let rec=miss.map(c=>`<p style="display:flex;justify-content:space-between;gap:8px;margin:6px 0">${esc(c[0])}<a class="btn sm" href="/builder#${c[2]}">Fix</a></p>`);
+if(D.scores.ats==null)rec.push('<p style="display:flex;justify-content:space-between">Run the ATS analyzer<a class="btn sm" href="/ats">Open</a></p>');
+$("#rec").innerHTML=rec.join("")||"Everything looks complete.";
+const v=RB.versions();$("#vers").innerHTML=v.map((x,i)=>`<p style="display:flex;gap:6px;align-items:center"><span style="flex:1;font-size:13px">${esc(x.name)}</span><button class="btn sm" data-l="${i}">Load</button><button class="btn sm" data-d="${i}">Delete</button></p>`).join("")||'<span class="note">No saved versions yet. Save one from the final builder step or by tailoring.</span>'}
+draw();document.addEventListener("click",e=>{const v=RB.versions(),b=e.target.closest("button");if(!b)return;if(b.dataset.l){RB.save(v[+b.dataset.l].data);toast("Version loaded");draw()}if(b.dataset.d){v.splice(+b.dataset.d,1);RB.saveVersions(v);draw()}});
+</script>{% endblock %}

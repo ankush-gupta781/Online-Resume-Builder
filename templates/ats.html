@@ -1,0 +1,12 @@
+{% extends "base.html" %}{% block body %}
+<h1>ATS Analyzer</h1><p class="note">Checks your saved resume for structure, keywords and bullet quality. It is an estimate, not a guarantee of ATS success.</p>
+<p><button class="btn pri lg" id="go">Analyze my resume</button></p><div id="out"></div>
+{% endblock %}{% block js %}<script>
+const li=a=>a.length?"<ul>"+a.map(x=>`<li>${esc(x)}</li>`).join("")+"</ul>":'<p class="note">None</p>';
+$("#go").onclick=async function(){const D=RB.load();if(!D.personal.fullName&&!D.summary&&!D.experience.length&&!D.education.length){$("#out").innerHTML='<div class="card">Your resume is empty. <a href="/builder">Start building</a> first.</div>';return}
+this.disabled=true;const r=await api("/api/ats",D);this.disabled=false;if(!r.ok)return toast(r.error);const x=r.result;D.scores.ats=x.score;RB.save(D);
+$("#out").innerHTML=`<div class="grid g2"><div class="card"><div class="ring" style="--p:${x.score}"><b>${x.score}</b></div><div class="note">out of 100</div><p class="note">${esc(x.disclaimer)}</p></div>
+<div class="card"><h3>Category scores</h3>${Object.entries(x.categories).map(([k,v])=>`<div style="margin:8px 0"><div style="display:flex;justify-content:space-between;font-size:13px"><span>${esc(k)}</span><span>${v.score}/${v.max}</span></div><div class="meter"><b style="width:${v.score/v.max*100}%"></b></div></div>`).join("")}</div>
+<div class="card"><h3>Strengths</h3>${li(x.strengths)}</div><div class="card"><h3>Weaknesses</h3>${li(x.weaknesses)}</div>
+<div class="card"><h3>Suggested improvements</h3>${li(x.suggestions)}</div><div class="card"><h3>Formatting issues</h3>${li(x.formatting)}<h3>Missing sections</h3>${li(x.missing_sections)}<h3>Keyword recommendations</h3><p>${x.keyword_recommendations.map(k=>`<span class="pill">${esc(k)}</span>`).join("")||'<span class="note">Add a job description in Target Job for keyword advice.</span>'}</p></div></div>`};
+</script>{% endblock %}
