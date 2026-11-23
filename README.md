@@ -1,4 +1,4 @@
-
+# contributed by ankush gupta, ayush narvariya, nikunj goyal
 # Online Resume Builder
 Flask app: guided builder, 8 templates, live preview, ATS analyzer, document import (PDF text + OCR), GitHub import, PDF export (ReportLab), optional AI assistant.
 Project by AYUSH NARVARIYA (BTAI26O1026), ANKUSH GUPTA (BTAI26O1013), NIKUNJ GOYAL (BTAI26O1079) - MITS-DU, Gwalior.
